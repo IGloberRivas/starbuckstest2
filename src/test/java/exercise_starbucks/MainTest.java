@@ -16,7 +16,7 @@ public class MainTest {
 
     @BeforeTest
     public void initGeckoDriverAndGoHome(){
-        System.setProperty("webdriver.gecko.driver", "C:/Users/ivan.rivas/IdeaProjects/WorkspaceSelenium/geckodriver-v0.19.1-win64/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "src/test/gecko/geckodriver-v0.19.1-win64/geckodriver.exe");
         firefoxDriver = new FirefoxDriver();
     }
 
