@@ -20,7 +20,7 @@ public class FireFoxConfigurationTest {
 
     @BeforeClass
     public static void setWebDriver(){
-        Path path = FileSystems.getDefault().getPath("src/main/resources/geckodriver-v0.19.1-win64/geckodriver.exe");
+        Path path = FileSystems.getDefault().getPath("geckodriver.exe");
         System.setProperty("webdriver.gecko.driver", path.toString());
         webDriver = new FirefoxDriver();
     }
