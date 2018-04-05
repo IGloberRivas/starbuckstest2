@@ -12,7 +12,6 @@ public class Encouragement extends PageObject{
     private By recipientName = By.id("recipient_name");
     private By message = By.id("message");
     private By preRange = By.id("pre_range");
-    private By li = By.tagName("li");
     private By senderName = By.id("sender_name");
     private By recipientEmail = By.id("recipient_email");
     private By senderEmail = By.id("sender_email");
@@ -62,7 +61,7 @@ public class Encouragement extends PageObject{
         return dateCart;
     }
 
-    public void selectNextDay(boolean todayIsFound, List<WebElement> tds, WebElement tdToday) {
+    private void selectNextDay(boolean todayIsFound, List<WebElement> tds, WebElement tdToday) {
         for (WebElement td : tds) {
             if (todayIsFound  && td.getAttribute(mClass).equals(" ")) {
                 td.click();

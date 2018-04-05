@@ -9,8 +9,8 @@ import java.util.List;
 public class TabMenuFragment extends PageObject{
 
     private By nav_menu = By.className("nav_menu");
-    private By li = By.tagName("li");
     private By ol = By.tagName("ol");
+    private By a = By.tagName("a");
 
     public TabMenuFragment(WebDriver webDriver){
         super(webDriver);
@@ -30,7 +30,7 @@ public class TabMenuFragment extends PageObject{
     public void seekAndGo(List<WebElement> listElements, String optionToGo){
         for(WebElement li : listElements){
             if(li.getText().equals(optionToGo)){
-                li.findElement(By.tagName("a")).click();
+                li.findElement(a).click();
                 break;
             }
         }

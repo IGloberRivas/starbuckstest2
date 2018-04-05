@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObject {
 
     protected WebDriver driver;
+    protected By li  = By.tagName("li");
 
     public PageObject(WebDriver driver){
         this.driver = driver;
