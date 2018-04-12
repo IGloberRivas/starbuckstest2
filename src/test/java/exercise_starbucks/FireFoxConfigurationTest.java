@@ -25,8 +25,11 @@ public class FireFoxConfigurationTest {
     public static void setWebDriver(){
 
         System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-
+        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "conoleLogs_Firefox.txt");
+        
         FirefoxOptions firefoxOptions = new FirefoxOptions(DesiredCapabilities.firefox());
+        firefoxOptions.addPreference("--log", "trace");
         firefoxOptions.addPreference("browser.popups.showPopupBlocker", false);
         firefoxOptions.addPreference("security.sandbox.content.level", 5);
         firefoxOptions.setAcceptInsecureCerts(true);
