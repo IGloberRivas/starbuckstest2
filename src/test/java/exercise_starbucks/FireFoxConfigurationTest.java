@@ -2,6 +2,9 @@ package exercise_starbucks;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -20,9 +23,16 @@ public class FireFoxConfigurationTest {
 
     @BeforeClass
     public static void setWebDriver(){
-        Path path = FileSystems.getDefault().getPath("geckodriver.exe");
-        System.setProperty("webdriver.gecko.driver", path.toString());
-        webDriver = new FirefoxDriver();
+
+        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+
+        FirefoxOptions firefoxOptions = new FirefoxOptions(DesiredCapabilities.firefox());
+        firefoxOptions.addPreference("browser.popups.showPopupBlocker", false);
+        firefoxOptions.addPreference("security.sandbox.content.level", 5);
+        firefoxOptions.setAcceptInsecureCerts(true);
+        firefoxOptions.setProfile(new FirefoxProfile());
+
+        webDriver = new FirefoxDriver(firefoxOptions);
     }
 
     /*@AfterClass
