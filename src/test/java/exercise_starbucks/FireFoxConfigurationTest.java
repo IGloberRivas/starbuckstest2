@@ -9,9 +9,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-
 public class FireFoxConfigurationTest {
 
     protected static WebDriver webDriver;
@@ -29,6 +26,8 @@ public class FireFoxConfigurationTest {
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "consoleLogs_Firefox.txt");
 
         FirefoxOptions firefoxOptions = new FirefoxOptions(DesiredCapabilities.firefox());
+
+        firefoxOptions.setBinary("C:/Program Files/Mozilla Firefox/firefox.exe");
         firefoxOptions.addPreference("--log", "trace");
         firefoxOptions.addPreference("browser.popups.showPopupBlocker", false);
         firefoxOptions.addPreference("security.sandbox.content.level", 5);
